@@ -29,7 +29,7 @@ module.exports = {
             const checkpassword = bcrypt.compareSync(password,user.password)
             if(checkpassword){
                 const token = jwt.sign({
-                    player: {
+                    user: {
                         id: user.id,
                         name:user.name,
                         username: user.username,
