@@ -8,7 +8,7 @@ module.exports = {
         try {
             const facility = await Facility.findAll({
                 where: {
-                  status_id: 1
+                  status_id: '1'
                 }
               });
             res.status(200).json({ data: facility });

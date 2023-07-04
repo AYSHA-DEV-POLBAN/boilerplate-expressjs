@@ -3,18 +3,23 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Statuses',{
+    await queryInterface.createTable('Transactions_Lines',{
       id:{
          type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
       },
-       name:{
-        type: Sequelize.STRING,
-        allowNull: true,
+      transaction_id:{
+        type: Sequelize.INTEGER,
+        allowNull: false, 
         
       },
+      product_id:{
+        type: Sequelize.STRING,
+        allowNull: false,
+        
+      }, 
       createdAt: {
         type: Sequelize.DATE,
         allowNull: true,
@@ -37,8 +42,10 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
   },
+
+
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Statuses', {
+    await queryInterface.dropTable('Transactions_Lines', {
       schema: 'public', // Menentukan skema tabel
     });
   }

@@ -11,6 +11,7 @@ var usersRouter = require('./app/users/router');
 var bannersRouter = require('./app/banner/router');
 var categoriesRouter = require('./app/categori/router');
 var facilitiesRouter = require('./app/facility/router');
+var productsRouter = require('./app/product/router');
 var authRouter = require('./app/auth/router');
 const URL = '/api/v1'
 const sequelize = require('./database/sequelize');
@@ -58,7 +59,7 @@ app.use(`${URL}/auth`, authRouter);
 app.use(`${URL}/banners`,bannersRouter);
 app.use(`${URL}/categories`,categoriesRouter);
 app.use(`${URL}/facilities`,facilitiesRouter);
-
+app.use(`${URL}/products`,productsRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

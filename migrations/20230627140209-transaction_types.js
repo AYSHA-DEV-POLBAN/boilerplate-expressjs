@@ -3,14 +3,14 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Statuses',{
+    await queryInterface.createTable('Transaction_types',{
       id:{
          type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
       },
-       name:{
+      name:{
         type: Sequelize.STRING,
         allowNull: true,
         
@@ -28,7 +28,6 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: true,
       },
-      
     });
     /**
      * Add altering commands here.
@@ -38,7 +37,7 @@ module.exports = {
      */
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Statuses', {
+    await queryInterface.dropTable('Transaction_types', {
       schema: 'public', // Menentukan skema tabel
     });
   }

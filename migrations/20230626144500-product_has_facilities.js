@@ -3,14 +3,14 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Product_Has_Facilities',{
+    await queryInterface.createTable('ProductFacility',{
      
-       product_id:{
+       ProductId:{
         type: Sequelize.INTEGER,
         allowNull: true,
         
       },
-      facility_id:{
+      FactilityId:{
         type: Sequelize.INTEGER,
         allowNull: true,
       },
@@ -20,6 +20,10 @@ module.exports = {
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: true,
+      },
+      deletedAt: {
         type: Sequelize.DATE,
         allowNull: true,
       },
@@ -33,7 +37,7 @@ module.exports = {
      */
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Product_Has_Facilities', {
+    await queryInterface.dropTable('ProductFacility', {
       schema: 'public', // Menentukan skema tabel
     });
   }

@@ -3,15 +3,20 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Statuses',{
+    await queryInterface.createTable('Reference_has_Operationals',{
       id:{
          type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
       },
-       name:{
-        type: Sequelize.STRING,
+      reference_id:{
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        
+      },
+      operational_id:{
+        type: Sequelize.INTEGER,
         allowNull: true,
         
       },
@@ -21,10 +26,6 @@ module.exports = {
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       updatedAt: {
-        type: Sequelize.DATE,
-        allowNull: true,
-      },
-      deletedAt: {
         type: Sequelize.DATE,
         allowNull: true,
       },
@@ -38,7 +39,7 @@ module.exports = {
      */
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Statuses', {
+    await queryInterface.dropTable('Reference_has_Operationals', {
       schema: 'public', // Menentukan skema tabel
     });
   }

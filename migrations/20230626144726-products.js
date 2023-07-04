@@ -1,5 +1,4 @@
 'use strict';
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -36,7 +35,7 @@ module.exports = {
         allowNull: true,
        
       },
-      base_id:{
+      locationId:{
         type: Sequelize.INTEGER,
         allowNull: true,
        
@@ -47,6 +46,11 @@ module.exports = {
        
       },
       vendor_id:{
+        type: Sequelize.INTEGER,
+        allowNull: true,
+       
+      },
+      OperationalId:{
         type: Sequelize.INTEGER,
         allowNull: true,
        

@@ -3,15 +3,56 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Statuses',{
+    await queryInterface.createTable('Locations',{
       id:{
          type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
       },
-       name:{
+      reference_id:{
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        
+      },
+      province_id:{
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        
+      },
+
+      city_id:{
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        
+      }, 
+      district_id:{
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        
+      },
+      sub_district_id:{
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        
+      },
+      latitude:{
         type: Sequelize.STRING,
+        allowNull: true,
+        
+      },
+      longitude:{
+        type: Sequelize.STRING,
+        allowNull: true,
+        
+      },
+      address:{
+        type: Sequelize.TEXT,
+        allowNull: true,
+        
+      },
+      type:{
+        type: Sequelize.TEXT,
         allowNull: true,
         
       },
@@ -38,7 +79,7 @@ module.exports = {
      */
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Statuses', {
+    await queryInterface.dropTable('Locations', {
       schema: 'public', // Menentukan skema tabel
     });
   }

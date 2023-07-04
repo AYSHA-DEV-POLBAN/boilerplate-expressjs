@@ -3,14 +3,34 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Statuses',{
+    await queryInterface.createTable('Operationals',{
       id:{
          type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
       },
-       name:{
+      product_id:{
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        
+      },
+      day_start_id:{
+        type: Sequelize.STRING,
+        allowNull: true,
+        
+      },
+      day_end_id:{
+        type: Sequelize.STRING,
+        allowNull: true,
+        
+      },
+      time_start:{
+        type: Sequelize.STRING,
+        allowNull: true,
+        
+      },
+      time_end:{
         type: Sequelize.STRING,
         allowNull: true,
         
@@ -37,8 +57,10 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
   },
+
+
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Statuses', {
+    await queryInterface.dropTable('Operationals', {
       schema: 'public', // Menentukan skema tabel
     });
   }
